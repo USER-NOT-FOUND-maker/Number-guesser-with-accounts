@@ -95,7 +95,7 @@ def main(LoggedIn):
         if not LoggedIn:
 
             if Action == "1":
-                Choice = inputln("1. play yourself\n2. get bot to play\n")
+                Choice = inputln("1. play a game yourself\n2. get a bot to play for you (if you are logged in, it wont be saved)\n")
                 if Choice == "1":
                     game(False)
                 else:
@@ -117,7 +117,11 @@ def main(LoggedIn):
         else:
 
             if Action == "1":
-                game(True)
+                 Choice = inputln("1. play a game yourself\n2. get a bot to play for you (if you are logged in, it wont be saved)\n")
+                 if Choice == "1":
+                     game(False)
+                 else:
+                     BotLogic()
 
             elif Action == "2":
                 LoggedIn = False

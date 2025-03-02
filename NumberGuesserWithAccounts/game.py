@@ -1,6 +1,6 @@
 from random import randint
 import sys
-from println import *
+from Modules.println import *
 
 sys.set_int_max_str_digits(0)
 
@@ -51,10 +51,16 @@ def game(LoggedIn,PlayedByBot = False):
     def Logic(attempts):
         while True:
             try:
-                guess = int(inputln(f"\nenter a guess between {LowerBound} and {UpperBound}: "))
+                guess = float(inputln(f"\nenter a guess between {LowerBound} and {UpperBound}: "))
                 while guess > UpperBound or guess < LowerBound:
-                    guess = int(inputln(f"\nenter a guess between {LowerBound} and {UpperBound}: "))
+                    guess = float(inputln(f"\nenter a guess between {LowerBound} and {UpperBound}: "))
+                    
+                if guess != int(guess):
+                    println("entered number must be a whole number")
+                    continue
+
                 attempts += 1
+		        
                 break
             except ValueError:
                 println("\nguess must be an integer")
